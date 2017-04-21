@@ -1,0 +1,56 @@
+<div class="nav-side-menu">
+  <div class="brand">
+    <img class="img-size" src="../assets/img/logo_wijmo_white.png" alt="Generic placeholder thumbnail" />
+    <!--    <img class="img-size" src="./assets/img/logo_wijmo_white.png" alt="Generic placeholder thumbnail"/>-->
+
+    <!--  <div> 
+      <button type="button" class="btn btn-default btn-sm">Download</button>
+      <button type="button" class="btn btn-default  btn-sm">기술지원</button>
+      <button type="button" class="btn btn-default  btn-sm">API</button>
+      </div>-->
+  </div>
+
+  <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+  <div class="menu-list">
+    <div class="menu-title">
+      Angular 2 Edition
+    </div>
+    <ul id="menu-content" class="menu-content collapse out">
+      <div *ngFor='let tocs of toc'>
+        <li data-toggle="collapse" class="collapsed" [attr.data-target]="'#' + tocs.path">
+          {{tocs.header}}<span class="arrow"></span>          
+        </li>
+        <ul class="sub-menu collapse" [attr.id]="tocs.path">
+          <div *ngFor='let item1 of tocs.items'>
+            <li data-toggle="collapse" class="collapsed" [attr.data-target]="'#' + item1.path" *ngIf='item1.items == null' (click)="onSelect(item1.path)">{{item1.header}}</li>              
+            <li data-toggle="collapse" class="collapsed" [attr.data-target]="'#' + item1.path" *ngIf='item1.items != null' >{{item1.header}}<span class="arrow"></span></li>                            
+            
+            <ul class="sub-menu2 collapse" [attr.id]="item1.path">
+              <div *ngFor='let item2 of item1.items'>
+                <li class="collapsed" (click)="onSelect(item2.path)">
+                  {{item2.header}}
+                </li>
+              </div>
+            </ul>
+          </div>
+        </ul>
+      </div>
+    </ul>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="banner">
+      <div class="banner-button">
+        <a href="http://cafe.naver.com/grapecity" target="_blank" class="btn btn-info">기술지원</a>&nbsp;
+        <a href="http://wijmo.com/5/docs/" target="_blank" class="btn btn-warning">API</a>&nbsp;
+        <a href="http://www.componentone.co.kr/downloads/default.htm#wijmo" target="_blank" class="btn btn-success">Download</a>
+      </div>
+    </div>
+    <br>
+    <div class="col-md-10 col-md-offset-2 main">
+      <!--ddd-->
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

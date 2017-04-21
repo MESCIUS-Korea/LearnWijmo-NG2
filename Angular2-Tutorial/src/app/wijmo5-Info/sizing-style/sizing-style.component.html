@@ -1,0 +1,113 @@
+<h1 class="page-header">
+  컨트롤의 크기조절 및 스타일</h1>
+<p>
+  Wijmo 5 컨트롤은 스타일, 모양 및 크기 조정을 위해 CSS에 의존합니다.</p>
+<p>
+  이 때문에 Wijmo 5 컨트롤에는 "너비", "높이"또는 "배경"과 같은 속성이 없습니다. 
+  스타일 및 레이아웃은 CSS를 사용하여 처리됩니다. <b>WinForms</b> 및 <b>XAML</b>을 비롯한 .NET 컨트롤에 익숙하다면 처음에는 약간 이상하게 느껴질 수 있습니다. 
+  CSS에 익숙해지면 매우 쉽고 강력합니다. 컨트롤 유형의 모든 인스턴스를 쉽게 스타일링하거나 특정 컨트롤을 스타일링 할 수 있습니다. 
+  모두 몇 줄의 재사용 가능한 CSS 만 있으면됩니다.
+  </p>
+
+<br/>
+<hr>
+<h3>
+  컨트롤 크기조절</h3>
+<p>
+  컨트롤의 크기와 위치는 일반적인 HTML / CSS 규칙을 따르는 호스팅 요소에 의해 결정됩니다. 
+  예를 들어, 아래의 CSS 규칙은 "grid"클래스의 요소는 그리드 내용에 맞게 자동으로 높이가 계산되어야하며 최대 300 픽셀입니다.</p>
+<pre class="hljs css"><span class="hljs-selector-class">.grid</span> &#123;
+    <span class="hljs-attribute">height</span>: auto;
+    <span class="hljs-attribute">max-height</span>: <span class="hljs-number">300px</span>;
+&#125;</pre>
+<p>
+  아래의 fiddle이 규칙이 두 개의 <b>FlexGrid</b> 컨트롤에 미치는 영향을 보여줍니다. 
+  첫 번째 그리드에는 몇 개의 항목 만 있으므로, 내용에 맞게 크기가 조절됩니다 (일반 HTML 표와 같음). 
+  두 번째 눈금에는 항목이 더 많으므로 높이가 자동으로 300 픽셀로 설정되고 스크롤 할 수있게됩니다.
+</p>
+
+<br/>
+<div>
+  <h3 class="node collapsed">
+    Example: 컨트롤 크기조절
+  </h3>
+  <div class="fiddle">
+    <script async="" src="http://jsfiddle.net/Wijmo5/J4zME/embed/result,html,js,css"></script>
+    <iframe src="http://jsfiddle.net/Wijmo5/J4zME/embedded/result,html,js,css" id="JSFEMB_17210" height="100%" width="100%"
+      frameborder="0" sandbox="allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+  </div>
+</div>
+
+<p>
+  첫 번째 그리드에는 표시 할 요소가 다섯 개뿐입니다. 300 픽셀보다 작으므로 그리드는 모든 요소를 표시하며 스크롤 막대가 필요하지 않습니다. 
+  두 번째 눈금에는 10,000 개의 항목이 있습니다. 300 픽셀을 초과하므로 그리드가 스크롤 할 수 있게됩니다.  
+</p>
+
+<br/>
+<hr>
+<h3>
+  컨트롤 스타일링</h3>
+<p>
+  컨트롤 스타일링은 크기조절과 동일한 논리를 따릅니다. 
+  CSS를 사용하여 글꼴, 색상, 여백, 패딩을 재정의하고 컨트롤의 모든 시각적 요소를 무시하십시오.
+</p>
+<p>
+  예를 들어,이 fiddle CSS를 사용하여 <b>FlexGrid</b> 컨트롤의 모양을 수정하는 방법을 보여줍니다.
+</p>
+<br/>
+<div>
+  <h3>
+    Example: 컨트롤 스타일링
+  </h3>
+  <div class="fiddle">
+    <script async="" src="http://jsfiddle.net/Wijmo5/3L8Cf/embed/result,html,js,css"></script>
+    <iframe src="http://jsfiddle.net/Wijmo5/3L8Cf/embedded/result,html,js,css" id="JSFEMB_17210" height="100%" width="100%"
+      frameborder="0" sandbox="allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+  </div>
+</div>
+<p></p>
+<p>
+  이제 그리드가 이제 흑백 평범한 모습을 보여줍니다. 
+  이렇게하기 위해 CSS를 변경하고 <b>그리드 내의</b> 요소 스타일을 지정합니다. 
+  Wijmo 컨트롤은 구성 요소에 클래스 이름을 지정하므로 쉽고 유연하게 스타일을 지정할 수 있습니다.  
+</p>
+<p>  
+  예를 들어 아래의 CSS는 테두리가없고 흰색 배경 인 셀 요소를 만듭니다:
+</p>
+<pre class="hljs css"><span class="hljs-selector-class">.grid</span> <span class="hljs-selector-class">.wj-cell</span> &#123;
+    <span class="hljs-attribute">border</span>: none;
+    <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#fff</span>;
+&#125;
+</pre>
+
+<br/>
+<hr>
+<h3>
+  코드-기반 스타일링</h3>
+<p>
+  Wijmo 5 컨트롤은 레이아웃과 크기 조정을 위해 CSS에 의존하지만 코드를 사용하여 컨트롤의 일부 측면을 완벽하게 제어하려는 경우가 있습니다.</p>
+<p>
+  예를 들어, FlexGrid는 컨트롤을 렌더링하는 데 사용되는 글꼴을 기반으로 행 높이를 계산합니다. 
+  하지만 CSS 기반 설정을 재정의하고 정확한 행 높이를 지정하는 것이 좋습니다. 다음 속성을 설정하여이 작업을 수행 할 수 있습니다.:
+</p>
+<pre class="hljs sql">// <span class="hljs-keyword">set</span> the height <span class="hljs-keyword">of</span> <span class="hljs-keyword">rows</span> <span class="hljs-keyword">in</span> the scrollable area
+flex.<span class="hljs-keyword">rows</span>.defaultSize = <span class="hljs-number">34</span>;
+// <span class="hljs-keyword">set</span> the height <span class="hljs-keyword">of</span> <span class="hljs-keyword">rows</span> <span class="hljs-keyword">in</span> the <span class="hljs-keyword">column</span> header area
+flex.columnHeaders.<span class="hljs-keyword">rows</span>.defaultSize = <span class="hljs-number">40</span>;
+</pre>
+<p>
+  이것은 아래의 fiddle에 나와 있으며 CSS를 사용하여 그리드에 대해 매우 구체적인 맞춤형 모양을 얻습니다. 
+  fiddle은 "초기화"이벤트를 사용하여 FlexGrid 컨트롤에 대한 참조를 가져옵니다. 
+  이것은 마크 업과 함께 생성될 때 컨트롤에 대한 참조를 얻는 데에 편리한 방법입니다.</p>
+<br/>
+<div class="member-panel example">
+  <h3 class="node collapsed">
+    Example: 코드-기반 스타일링
+  </h3>
+  <div class="fiddle">
+    <script async="" src="http://jsfiddle.net/Wijmo5/kzrutyj9/embed/result,html,js,css"></script>
+    <iframe src="http://jsfiddle.net/Wijmo5/kzrutyj9/embedded/result,html,js,css" id="JSFEMB_17210" height="100%"
+      width="100%" frameborder="0" sandbox="allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+  </div>
+</div>
+<p></p>

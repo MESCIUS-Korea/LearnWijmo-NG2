@@ -1,0 +1,90 @@
+<h1 class="page-header">
+    Wijmo 5에서 열거형(Enum) 사용하기</h1>
+<p>
+    여러 Wijmo 5 컨트롤에는 열거형 값을 사용하는 속성이 있습니다.</p>
+<p>
+    예를 들어 <b>FlexChart</b>의 <b>chartType</b> 속성은 <b>wijmo.chart.ChartType</b> 값을 사용합니다.
+</p>
+
+<hr>
+<!-- ************************************************************************************************************************* -->
+<h3>
+    열거 속성 설정하기</h3>
+<p>
+    열거 속성을 설정하는 권장 방법은 다음과 같습니다.:
+</p>
+<pre class="ng-scope hljs cpp"><span class="hljs-comment">// setting the value of an enumeration property</span>
+chart.chartType = wijmo.chart.ChartType.Line;
+</pre>
+<p>
+    다음 대안도 유효하며 동일한 결과를 산출합니다.:</p>
+<pre class="ng-scope hljs cs"><span class="hljs-comment">// wijmo.chart.ChartType.Line has value 3:</span>
+chart.chartType = <span class="hljs-number">3</span>;
+
+<span class="hljs-comment">// enumerations are automatically parsed</span>
+chart.chartType = <span class="hljs-string">'Line'</span>;</pre>
+
+<hr>
+<!-- ************************************************************************************************************************* -->
+<h3>
+    열거 속성 가져오기</h3>
+<p>
+    속성을 얻는 것은 모든 경우에 3을 반환합니다. 값을 문자열 (예 : UI에 표시)로 가져 오려면 다음과 같이 할 수 있습니다.:
+    < /p>
+        <pre class="ng-scope hljs cpp"><span class="hljs-comment">// getting the enumerated value as a number</span>
+console.<span class="hljs-built_in">log</span>(chart.chartType); <span class="hljs-comment">// outputs "3"</span>
+
+<span class="hljs-comment">// getting the enumerated value as a string</span>
+console.<span class="hljs-built_in">log</span>(wijmo.chart.ChartType[chart.chartType]); <span class="hljs-comment">// outputs "Line"</span></pre>
+
+        <hr>
+        <!-- ************************************************************************************************************************* -->
+
+        <h3>
+            열거형 값 변환</h3>
+        <p>
+            열거 클래스를 사용하여 색인화하여 문자열과 해당 숫자 사이를 변환 할 수 있습니다. 예 :</p>
+        <pre class="ng-scope hljs javascript"><span class="hljs-comment">// convert enumeration value to string</span>
+<span class="hljs-built_in">console</span>.log(wijmo.chart.ChartType[<span class="hljs-number">3</span>]); <span class="hljs-comment">// outputs "Line"</span>
+<span class="hljs-built_in">console</span>.log(wijmo.chart.ChartType[<span class="hljs-number">1000</span>]); <span class="hljs-comment">// outputs "null"</span>
+
+<span class="hljs-comment">// convert string to enumeration value</span>
+<span class="hljs-built_in">console</span>.log(wijmo.chart.ChartType[<span class="hljs-string">'Line'</span>]); <span class="hljs-comment">// outputs "3"</span>
+<span class="hljs-built_in">console</span>.log(wijmo.chart.ChartType[<span class="hljs-string">'NoSuchValue'</span>]); <span class="hljs-comment">// outputs "null"</span></pre>
+
+        <hr>
+        <!-- ************************************************************************************************************************* -->
+
+        <h3>
+            .NET 개발자를위한 참고 사항</h3>
+        <p>
+            .NET, <b>Enum</b> 클래스는 모든 열거형에서 정의한 이름과 값을 반환하는
+            <a href="http://msdn.microsoft.com/en-us/library/system.enum.getnames(v=vs.110).aspx">GetNames</a> 및
+            <a href="http://msdn.microsoft.com/en-us/library/system.enum.getvalues(v=vs.110).aspx">GetValues</a> 라는 메서드를
+            제공합니다.
+        </p>
+        <p>
+            아래 코드는 유사한 메서드를 구현하여 TypeScript 열거 형으로 정의 된 이름과 값을 얻는 방법을 보여줍니다 (Wijmo 5에서 사용됨).:</p>
+        <pre class="ng-scope hljs javascript"><span class="hljs-comment">// get the names defined by an enumeration</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getEnumNames</span>(<span class="hljs-params">enumClass</span>) </span>&#123;
+    <span class="hljs-keyword">var</span> names = [];
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> key <span class="hljs-keyword">in</span> enumClass) &#123;
+        <span class="hljs-keyword">var</span> val = <span class="hljs-built_in">parseInt</span>(key);
+        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">isNaN</span>(val)) names.push(key);
+    &#125;
+    <span class="hljs-keyword">return</span> names;
+&#125;
+
+<span class="hljs-comment">// get the values defined by an enumeration</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getEnumValues</span>(<span class="hljs-params">enumClass</span>) </span>&#123;
+    <span class="hljs-keyword">var</span> values = [];
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> key <span class="hljs-keyword">in</span> enumClass) &#123;
+        <span class="hljs-keyword">var</span> val = <span class="hljs-built_in">parseInt</span>(key);
+        <span class="hljs-keyword">if</span> (!<span class="hljs-built_in">isNaN</span>(val)) values.push(val);
+    &#125;
+    <span class="hljs-keyword">return</span> values;
+&#125;
+
+<span class="hljs-comment">// sample usage:</span>
+<span class="hljs-keyword">var</span> nn = getEnumNames(wijmo.DataType); <span class="hljs-comment">// returns [ 'Object', 'String', 'Number', 'Boolean', 'Array' ]</span>
+<span class="hljs-keyword">var</span> vv = getEnumValues(wijmo.DataType); <span class="hljs-comment">// returns [ 0, 1, 2, 3, 4 ]</span></pre>

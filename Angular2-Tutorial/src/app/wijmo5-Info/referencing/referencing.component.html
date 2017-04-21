@@ -1,0 +1,103 @@
+<div id="content" class="content ng-scope" role="main" ng-view="">
+    <h1 class="page-header">
+        Wijmo5 API 참조하기
+    </h1>
+
+    <p>
+        응용 프로그램에서 Wijmo 5를 사용하려면 HTML 페이지에 대한 몇 가지 참조를 추가하여 포함 시키십시오.</p>
+    <p>
+        Wijmo 5 응용 프로그램에 필요한 최소 파일 집합은 다음과 같습니다.
+    </p>
+    <ul>
+        <li><b>wijmo.js:</b> 세계화/지역화, 이벤트, 컨트롤, 및 CollectionView 클래스를 포함한 Wijmo 5 인프라가 들어 있습니다.</li>
+        <li><b>wijmo.css:</b> 모든 Wijmo 5 컨트롤의 스타일을 지정하는 데 사용되는 CSS 규칙이 들어 있습니다.</li>
+    </ul>
+    <p>
+        이 외에도 사용하는 구성 요소에 따라 하나 이상의 추가 파일을 포함하십시오.:</p>
+    <ul>
+        <li><b>wijmo.grid.js:</b> FlexGrid 컨트롤이 들어 있습니다.</li>
+        <li><b>wijmo.chart.js:</b> FlexChart 및 FlexPie 컨트롤이 들어 있습니다.</li>
+        <li><b>wijmo.input.js:</b> ComboBox, AutoComplete, InputDate, InputTime, InputNumber, InputMask, ListBox, Menu 및 Calendar
+            컨트롤을 비롯한 여러 입력 컨트롤이 들어 있습니다.</li>
+        <li><b>wijmo.gauge.js:</b> LinearGauge, RadialGauge 및 BulletGraph를 비롯한 여러 게이지 컨트롤이 있습니다.
+        </li>
+        <li><b>angular.js:</b> AngularJS 애플리케이션에 필요한 Google의 AngularJS 프레임 워크입니다.
+        </li>
+        <li><b>wijmo.angular.js:</b> 마크 업에서 직접 Wijmo 5 컨트롤을 사용할 수있게 해주는 AngularJS 지시문을 포함합니다.</li>
+        <li><b>wijmo.culture.<i>[CultureName]</i>.js:</b> 미국 영어 이외의 언어로 응용 프로그램을 개발하는 데 사용되는 문화 별 파일이 들어 있습니다.</li>
+        <li><b>wijmo.theme.<i>[ThemeName]</i>.css:</b> Wijmo 5 컨트롤의 모양을 사용자 지정하는 데 사용되는 CSS 규칙이 들어 있습니다.</li>
+    </ul>
+    <p>
+        파일의 실제 위치는 두 가지 옵션이 있습니다. Wijmo를 다운로드하고 필요한 파일을 응용 프로그램의 해당 폴더에 복사하거나 콘텐츠 전송 네트워크 (CDN)에서 클라우드에 호스팅 된 Wijmo 파일을 참조 할 수 있습니다.
+        아래 섹션은 예제를 보여줍니다.</p>
+
+
+
+    <hr><!-- ************************************************************************************************************************* -->
+
+
+    <h3>
+        로컬로 Wijmo 배포</h3>
+    <p>
+        Wijmo 파일을 다운로드하여 응용 프로그램 내의 폴더에 복사하십시오. Wijmo 스크립트 파일을 "scripts / vendors"라는 폴더에두고 "styles"라는 폴더의 CSS 파일을 HTML 페이지에 추가 할
+        수 있습니다:</p>
+    <pre class="hljs xml"><span class="hljs-comment">&lt;!-- Wijmo 레퍼런스 (필수) --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"scripts/vendor/controls/wijmo.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"styles/wijmo.min.css"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span>/&gt;</span>
+
+<span class="hljs-comment">&lt;!-- Wijmo 컨트롤 (옵션, 필요한 컨트롤 만 추가) --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"scripts/vendor/controls/wijmo.grid.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"scripts/vendor/controls/wijmo.chart.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"scripts/vendor/controls/wijmo.input.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"scripts/vendor/controls/wijmo.gauge.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- Wijmo custom theme (옵션, 원하는 테마를 추가) --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"styles/themes/wijmo.theme.modern.min.css"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span>/&gt;</span>
+
+<span class="hljs-comment">&lt;!-- Wijmo custom culture (옵션, 원하는 문화권을 추가) --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"scripts/vendor/controls/cultures/wijmo.culture.ja.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- AngularJS and Wijmo directives (옵션, AngularJS 어플리케이션에서 사용) --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"scripts/vendor/angular.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"scripts/vendor/interop/angular/wijmo.angular.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</pre>
+
+
+    <hr><!-- ************************************************************************************************************************* -->
+
+
+    <h3>
+        CDN에서 Wijmo 배포</h3>
+    <p>
+        이 경우 다운로드 할 내용이 없습니다. HTML 페이지에 다음 행을 추가하기 만하면 됩니다:
+    </p>
+    <pre class="hljs xml"><span class="hljs-comment">&lt;!-- Wijmo 레퍼런스 (필수) --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://cdn.wijmo.com/5.20163.259/controls/wijmo.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://cdn.wijmo.com/5.20163.259/styles/wijmo.min.css"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span>/&gt;</span>
+
+<span class="hljs-comment">&lt;!-- Wijmo 컨트롤 (옵션, 필요한 컨트롤 만 추가) --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://cdn.wijmo.com/5.20163.259/controls/wijmo.grid.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://cdn.wijmo.com/5.20163.259/controls/wijmo.chart.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://cdn.wijmo.com/5.20163.259/controls/wijmo.input.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://cdn.wijmo.com/5.20163.259/controls/wijmo.gauge.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- Wijmo custom theme (옵션, 원하는 테마를 추가) --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://cdn.wijmo.com/5.20163.259/styles/themes/wijmo.theme.modern.min.css"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span>/&gt;</span>
+
+<span class="hljs-comment">&lt;!-- Wijmo custom culture (옵션, 원하는 문화권을 추가) --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://cdn.wijmo.com/5.20163.259/controls/cultures/wijmo.culture.ja.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- AngularJS and Wijmo directives (옵션, AngularJS 어플리케이션에서 사용) --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://cdn.wijmo.com/5.20163.259/interop/angular/wijmo.angular.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</pre>
+
+    <hr><!-- ************************************************************************************************************************* -->
+
+    <p>
+        CDN 버전에는 화면 오른쪽 하단에 Wijmo 5 워터 마크 요소가 포함되어 있습니다. 워터 마크를 표시하지 않으려면 위에서 설명한대로 Wijmo를 로컬로 배포해야합니다.</p>
+
+    <p class="warning">
+        <b>참고</b> : 참조의 순서는 중요합니다. <b>wijmo.js</b> 모듈이 먼저 있어야하고 그 다음에 제어 모듈, 제어 확장이 있어야하며 <b>wijmo.angular</b> 모듈이 마지막에 포함되어야합니다.
+    </p>
+</div>

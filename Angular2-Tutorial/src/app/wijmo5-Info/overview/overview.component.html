@@ -1,0 +1,258 @@
+<h1 class="page-header">
+  Welcome to Wijmo 5
+</h1>
+<div id="content" class="content">
+  <p class="ng-scope">
+    Wijmo 5는 새로운 세대의 JavaScript 컨트롤 입니다. 최신 HTML5 기술을 최대한 활용하여 구시대의 브라우저를 지원하기 위해 타협하지 않습니다. 그렇기 때문에 이전의 어떠한 제품들 보다 훨씬 빠르고, 가볍고,
+    사용하기 쉬운 컨트롤의 집합입니다.</p>
+  <p class="ng-scope">
+    Wijmo 5는 EcmaScript5 이외의 종속성이 없습니다. jQuery, jQueryUI 또는 다른 프레임 워크없이 사용할 수 있습니다.
+  </p>
+  <p class="ng-scope">
+    Wijmo 5는 다음 기술을 활용하기 위해 최신 브라우저 (IE9 이상)가 필요합니다.:
+  </p>
+  <ul class="ng-scope">
+    <li><b>ECMAScript 5:</b> ECMAScript 5 표준은 속성 getter 및 setter에 대한 지원을 추가합니다. 이것은 작은 변화처럼 보일지 모르나 큰 차이를 만듭니다. 예를 들어, 프로퍼티 값을
+      증가시키기 위해
+      <code> control.value (control.value () + 1)</code> 를 쓰는 대신 이제 <code> control.value ++</code>를 쓸 수 있습니다. ECMAScript
+      5 표준은 콜백에서 'this'매개 변수의 값을 지정할 수있는
+      <a href="http://javascriptissexy.com/javascript-apply-call-and-bind-methods-are-essential-for-javascript-professionals/"
+        target="_blank">
+        bind
+        </a>
+        메소드와 같은 많은 다른 중요한 개선 사항을 추가합니다. 또한 많은 시간을 절약 할 수있는 새로운
+        <a href="https://www.inkling.com/read/javascript-definitive-guide-david-flanagan-6th/chapter-7/ecmascript-5-array-methods"
+          target="_blank">
+          배열 메소드
+          </a>
+          가 있습니다.
+    </li>
+    <li>
+      <b>SVG:</b> 최신 브라우저는 <a href="https://developer.mozilla.org/en/docs/Web/SVG" target="_blank">SVG</a>를 구현하므로 데이터의 놀라운
+      시각적 표현을 쉽게 만들 수 있습니다. Wijmo는 레거시 브라우저를 지원해야하는 경우 오버 헤드없이 SVG를 직접 활용합니다.
+    </li>
+    <li>
+      <b>TypeScript:</b>
+      <a href="http://www.typescriptlang.org/" target="_blank">TypeScript</a>에서 모듈, 클래스 및 상속과 같은 유형 확인 및 OOP 개념을 활용하여 Wijmo를
+      작성했습니다. 출력물은 여전히 순수한 JavaScript이므로, 자체 개발 작업에서 두 언어 중 하나를 사용할 수 있습니다.
+    </li>
+    <li>
+      <b>Mobile Devices:</b> 
+      Wijmo 5는 처음부터 모바일 브라우저를 지원하도록 설계되었습니다. 반응적인 레이아웃과 터치 지원은 모든 Wijmo 5 컨트롤의 디자인과 구현에서 주요 고려 사항이었습니다.      
+    </li>
+    <li>
+      <b>AngularJS:</b>
+      <a href="http://angularjs.org/" target="_blank">AngularJS</a>는 오늘날 가장 인기 있고 강력한 JavaScript 응용 프로그램 프레임 워크 중 하나입니다. Angular 1.x는 출시 된 이래로 지원되었으며 Angular 2는 출시되기 전에도 지원되었습니다. 
+      자세한 내용은  <a [routerLink]="['ng1-directive']">AngularJS 응용 프로그램에서 Wijmo 5</a> 사용 항목을 참조하십시오.      
+    </li>
+    <li>
+      <b>Other frameworks:</b>
+      Wijmo를 원하는 다른 JavaScript 프레임 워크와 함께 사용할 수 있습니다. AngularJS 1.x 및 2.x 외에도 
+      
+      <a href="https://facebook.github.io/react/" target="_blank">React</a>,
+      <a href="https://vuejs.org/" target="_blank">Vue</a>,
+      및 
+      <a href="http://knockoutjs.com/" target="_blank">KnockoutJS</a> 용 interop 모듈을 제공합니다. 
+      우리는 앞으로 고객 요청에 따라 다른 프레임 워크를 추가할 계획입니다.     
+    </li>
+    <li>
+      <b>Bootstrap:</b>
+      <a href="http://getbootstrap.com/css/" target="_blank">부트스트랩</a>은 가장 쉽고 강력하며 인기있는 CSS 프레임 워크 중 하나입니다. 
+      우리는 샘플과 온라인 문서에서 사용합니다. 부트 스트랩을 사용하는 경우, Wijmo 5는 사용자가 별도의 노력을하지 않아도 바로 사용할 수 있습니다.
+    </li>
+  </ul>
+  <p class="ng-scope">
+   일부 시나리오에서는 구버전 브라우저 (IE8 및 이전 버전)에 대한 지원이 필요하다는 것을 알고 있습니다. 
+   이러한 이유로 우리는 고객이 요구하는 한 오리지날 Wijmo의 버전을 계속 유지할 것입니다. 
+   IE8 및 이전 버전을 지원해야하는 경우 Wijmo를 계속 사용하십시오. 
+   우리는 평소처럼 그것을 유지하고 지원할 것입니다. HTML5 및 최신 브라우저로 이동할 준비가되면 Wijmo 5는 여러분을 위한 것입니다!
+   </p>
+</div>
+<br/>
+<br/>
+<h1 class="page-header">
+  인기있는 튜토리얼
+</h1>
+<div class="row placeholders">
+  <div class="col-xs-6 col-sm-3 placeholder">
+    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive"
+      alt="Generic placeholder thumbnail">
+      <h4>Label</h4>
+      <span class="text-muted">Something else</span>
+  </div>
+  <div class="col-xs-6 col-sm-3 placeholder">
+    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive"
+      alt="Generic placeholder thumbnail">
+      <h4>Label</h4>
+      <span class="text-muted">Something else</span>
+  </div>
+  <div class="col-xs-6 col-sm-3 placeholder">
+    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive"
+      alt="Generic placeholder thumbnail">
+      <h4>Label</h4>
+      <span class="text-muted">Something else</span>
+  </div>
+  <div class="col-xs-6 col-sm-3 placeholder">
+    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive"
+      alt="Generic placeholder thumbnail">
+      <h4>Label</h4>
+      <span class="text-muted">Something else</span>
+  </div>
+</div>
+
+<div class="row placeholders">
+  <div class="col-xs-6 col-sm-3 placeholder">
+    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive"
+      alt="Generic placeholder thumbnail">
+      <h4>Label</h4>
+      <span class="text-muted">Something else</span>
+  </div>
+  <div class="col-xs-6 col-sm-3 placeholder">
+    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive"
+      alt="Generic placeholder thumbnail">
+      <h4>Label</h4>
+      <span class="text-muted">Something else</span>
+  </div>
+  <div class="col-xs-6 col-sm-3 placeholder">
+    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive"
+      alt="Generic placeholder thumbnail">
+      <h4>Label</h4>
+      <span class="text-muted">Something else</span>
+  </div>
+  <div class="col-xs-6 col-sm-3 placeholder">
+    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive"
+      alt="Generic placeholder thumbnail">
+      <h4>Label</h4>
+      <span class="text-muted">Something else</span>
+  </div>
+</div>
+<!--
+<h2 class="sub-header">Section title</h2>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Header</th>
+        <th>Header</th>
+        <th>Header</th>
+        <th>Header</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1,001</td>
+        <td>Lorem</td>
+        <td>ipsum</td>
+        <td>dolor</td>
+        <td>sit</td>
+      </tr>
+      <tr>
+        <td>1,002</td>
+        <td>amet</td>
+        <td>consectetur</td>
+        <td>adipiscing</td>
+        <td>elit</td>
+      </tr>
+      <tr>
+        <td>1,003</td>
+        <td>Integer</td>
+        <td>nec</td>
+        <td>odio</td>
+        <td>Praesent</td>
+      </tr>
+      <tr>
+        <td>1,003</td>
+        <td>libero</td>
+        <td>Sed</td>
+        <td>cursus</td>
+        <td>ante</td>
+      </tr>
+      <tr>
+        <td>1,004</td>
+        <td>dapibus</td>
+        <td>diam</td>
+        <td>Sed</td>
+        <td>nisi</td>
+      </tr>
+      <tr>
+        <td>1,005</td>
+        <td>Nulla</td>
+        <td>quis</td>
+        <td>sem</td>
+        <td>at</td>
+      </tr>
+      <tr>
+        <td>1,006</td>
+        <td>nibh</td>
+        <td>elementum</td>
+        <td>imperdiet</td>
+        <td>Duis</td>
+      </tr>
+      <tr>
+        <td>1,007</td>
+        <td>sagittis</td>
+        <td>ipsum</td>
+        <td>Praesent</td>
+        <td>mauris</td>
+      </tr>
+      <tr>
+        <td>1,008</td>
+        <td>Fusce</td>
+        <td>nec</td>
+        <td>tellus</td>
+        <td>sed</td>
+      </tr>
+      <tr>
+        <td>1,009</td>
+        <td>augue</td>
+        <td>semper</td>
+        <td>porta</td>
+        <td>Mauris</td>
+      </tr>
+      <tr>
+        <td>1,010</td>
+        <td>massa</td>
+        <td>Vestibulum</td>
+        <td>lacinia</td>
+        <td>arcu</td>
+      </tr>
+      <tr>
+        <td>1,011</td>
+        <td>eget</td>
+        <td>nulla</td>
+        <td>Class</td>
+        <td>aptent</td>
+      </tr>
+      <tr>
+        <td>1,012</td>
+        <td>taciti</td>
+        <td>sociosqu</td>
+        <td>ad</td>
+        <td>litora</td>
+      </tr>
+      <tr>
+        <td>1,013</td>
+        <td>torquent</td>
+        <td>per</td>
+        <td>conubia</td>
+        <td>nostra</td>
+      </tr>
+      <tr>
+        <td>1,014</td>
+        <td>per</td>
+        <td>inceptos</td>
+        <td>himenaeos</td>
+        <td>Curabitur</td>
+      </tr>
+      <tr>
+        <td>1,015</td>
+        <td>sodales</td>
+        <td>ligula</td>
+        <td>in</td>
+        <td>libero</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+-->

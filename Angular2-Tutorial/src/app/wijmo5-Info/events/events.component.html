@@ -1,0 +1,65 @@
+<h1 class="page-header">
+    Wijmo 와 HTML 이벤트</h1>
+<p class="ng-scope">
+    HTML5는 HTML 요소에서 작동하지만 이벤트를 컨트롤 및 컬렉션과 같은 임의의 객체를 추가하는 데 사용할 수 없는 이벤트 메커니즘을 가지고 있습니다.</p>
+<p class="ng-scope">
+    이 때문에 Wijmo는 모든 Wijmo 클래스의 모든 이벤트를 구현하는 데 사용되는 <b>Event</b> 클래스를 정의합니다. Wijmo와 HTML 이벤트의 주요 차이점은 다음과 같습니다.
+</p>
+<ol class="ng-scope">
+    <li>
+        Wijmo 이벤트는 HTML 요소뿐만 아니라 모든 클래스에서 선언 할 수 있습니다.</li>
+    <li>
+        Wijmo 이벤트는 라우팅 (캡쳐 및 버블링)이 없기 때문에 HTML 이벤트보다 가볍습니다. 이벤트를 선언한 객체 만 대상으로합니다.
+    </li>
+    <li>
+        HTML 이벤트에서 사용되는 <b>addEventListener</b> 및 <b>removeEventListner</b> 메서드와 달리 이벤트의 
+        <b>addHandler</b> 및 <b>removeHandler</b> 메서드를 호출하여 Wijmo 이벤트 처리기를 추가 및 제거 할 수 있습니다.
+    </li>
+    <li>
+        모든 Wijmo 이벤트 처리기는 (a) 이벤트 발신자와 (b) 이벤트 인수의 두 가지 매개 변수를 사용합니다.</li>
+    <li>
+        Wijmo는 이벤트 "XYZ"가 상응하는 메소드 "onXYZ"에 의해 발생되는 패턴을 따르며, 
+        핸들러를 부착하지 않거나 이벤트를 사용자 정의하거나 심지어 억제하지 않고 이벤트를 처리하는 파생 클래스에 의해 대체 될 수 있습니다.
+    </li>
+</ol>
+
+<p class="ng-scope">
+    Wijmo 이벤트는 HTML 이벤트를 대체하지 않습니다. 
+    응용 프로그램은 일반적으로 둘 다 사용합니다. HTML 이벤트는 컨트롤의 <b>hostElement</b> 또는 컨트롤 템플릿에 정의 된 요소를 대상으로하는 
+    마우스 및 키보드 상호 작용을 처리하는 데 사용됩니다. Wijmo 이벤트는 DOM과 직접 관련이없는 컨트롤 관련 이벤트를 처리하는 데 사용됩니다. 
+    예 : <b>valueChanged</b> 또는 <b>rowAdded</b>.
+</p>
+<p class="ng-scope">    
+    아래 예제는 일반 JavaScript를 사용하여 <b>InputNumber</b> 컨트롤의 HTML 및 Wijmo 이벤트에 핸들러를 추가하는 방법을 보여줍니다.
+</p>
+
+<pre class="ng-scope hljs javascript"><span class="hljs-comment">// create the control</span>
+<span class="hljs-keyword">var</span> ctl = <span class="hljs-keyword">new</span> wijmo.input.InputNumber(<span class="hljs-string">'#inputNumber'</span>);
+
+<span class="hljs-comment">// attach a Wijmo event handler</span>
+ctl.valueChanged.addHandler(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">s, e</span>) </span>&#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'the value has changed to '</span> + s.value);
+&#125;);
+
+<span class="hljs-comment">// attach an HTML event handler</span>
+ctl.addEventListener(ctl.hostElement, <span class="hljs-string">'keypress'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>) </span>&#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'you pressed '</span> + e.charCode);
+&#125;);</pre>
+
+<p class="ng-scope">
+    위의 예는 일반 JavaScript를 사용하는 구문을 보여줍니다. 
+    Angular, Knockout, Aurelia 또는 Vue와 같은 프레임 워크를 사용하는 응용 프로그램은 프레임 워크에서 지시 한 구문을 사용해야합니다.</p>
+<p class="ng-scope">
+    예를 들어, Angular 1.x는 <b>valueChanged</b> Wijmo 이벤트에 다음과 같이 핸들러를 연결합니다.    
+<pre class="ng-scope hljs cs">&lt;wj-input-number
+    <span class="hljs-keyword">value</span>-changed=<span class="hljs-string">"myValueChangedEventHander(s, e)"</span>&gt;...</pre>
+
+<p class="ng-scope">
+    Angular2에서는 다음과 같이 대신 할 수 있습니다.</p>
+<pre class="ng-scope hljs bash">&lt;wj-input-number <span class="hljs-comment">#theControl</span>
+    (value-changed)=<span class="hljs-string">"myValueChangedEventHander(theControl, <span class="hljs-variable">$event</span>)"</span>&gt;...</pre>
+
+<p class="ng-scope">
+    HTML 및 Wijmo 이벤트에 대한 자세한 내용은 <a href="http://wijmo.com/blog/html-and-wijmo-events/" target="_blank">HTML 및 Wijmo 이벤트</a>
+     블로그 및 <a href="http://wijmo.com/5/docs/topic/wijmo.Event.Class.html" target="_blank">이벤트</a> 클래스 문서를 참조하십시오.
+</p>

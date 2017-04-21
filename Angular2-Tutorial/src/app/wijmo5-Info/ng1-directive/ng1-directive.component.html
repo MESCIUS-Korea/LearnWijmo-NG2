@@ -1,0 +1,68 @@
+<h1 class="page-header">
+AngularJS 지시문
+</h1>
+<p>    
+    Wijmo 팀은 JavaScript 애플리케이션을위한 Google의 프레임 워크 인 AngularJS의 큰 팬입니다. 
+    <a href="https://angularjs.org/" target="_blank">AngularJS</a>는 템플릿, 데이터 바인딩, MVVM, 웹 구성 요소 등을 제공합니다.
+</p>
+<p>    
+    AngularJS의 주요 장점 중 하나는 MVVM 패턴을 지원한다는 것입니다. 
+    MVVM 패턴은 애플리케이션 로직이 모델 (JavaScript로 구현 된 컨트롤러라고도 함)에 포함되어 있고 화면은 뷰 (HTML)에 포함되어 있습니다.</p>
+<p>
+    이를 위해 AngularJS는 사용자 지정 HTML 요소 및 특성 인 <b>지시문</b>을 지원합니다. 
+    AngularJS에는 많은 수의 기본 제공 지시문이 포함되어 있으며 WinForms 또는 XAML 응용 프로그램에서 자체 컨트롤을 만들 수 있기 때문에 쉽게 구현할 수 있습니다.
+</p>
+<p>
+    Wijmo 5는 모든 제어에 대해 AngularJS 지시문을 제공합니다. 
+    지시문은 <b>wijmo.angular.js</b> 파일에 정의되어 있으며 다음과 같은 코드를 작성할 수 있습니다:
+</p>
+<pre class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">ng-app</span>=<span class="hljs-string">"app"</span> <span class="hljs-attr">ng-controller</span>=<span class="hljs-string">"appCtrl"</span>&gt;</span>
+    
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>This is a <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>FlexGrid<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span> control:<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">wj-flex-grid</span> <span class="hljs-attr">items-source</span>=<span class="hljs-string">"data"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">wj-flex-grid-column</span> <span class="hljs-attr">header</span>=<span class="hljs-string">"Country"</span> <span class="hljs-attr">binding</span>=<span class="hljs-string">"country"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">wj-flex-grid-column</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">wj-flex-grid-column</span> <span class="hljs-attr">header</span>=<span class="hljs-string">"Sales"</span> <span class="hljs-attr">binding</span>=<span class="hljs-string">"sales"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">wj-flex-grid-column</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">wj-flex-grid-column</span> <span class="hljs-attr">header</span>=<span class="hljs-string">"Expenses"</span> <span class="hljs-attr">binding</span>=<span class="hljs-string">"expenses"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">wj-flex-grid-column</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">wj-flex-grid-column</span> <span class="hljs-attr">header</span>=<span class="hljs-string">"Downloads"</span> <span class="hljs-attr">binding</span>=<span class="hljs-string">"downloads"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">wj-flex-grid-column</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">wj-flex-grid</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
+
+<br/>
+<h3>
+    AngularJS 응용 프로그램에서 Wijmo 5 사용</h3>
+<p>
+    프로젝트에서 Wijmo 5 Angular 지시문을 사용하려면 <a href="static/references.html">응용 프로그램의 Wijmo 5 참조</a> 
+    항목에 설명 된대로 AngularJS, Wijmo 및 Wijmo의 AngularJS 지시문에 참조를 추가하십시오.    
+</p>
+<p>
+    일단 참조 정보가 있으면, 다음과 같은 코드를 사용하여 여러분의 앱이 "wj"모듈에 의존하고 있다고 AngularJS에게 알려줍니다.:
+</p>
+<pre class="hljs coffeescript">var app = angular.<span class="hljs-built_in">module</span>(<span class="hljs-string">'app'</span>, [<span class="hljs-string">'wj'</span>]);</pre>
+<p>
+    응용 프로그램을 정의하면, 어떠한 AngularJS 응용 프로그램에서도 사용할 수 있는 데이터 및 로직를 제공하는 컨트롤러를 추가할 수 있습니다.
+</p>
+<p>
+    
+모든 Wijmo 5 지시어는 "wj"접두어로 시작하고 그 뒤에는 대시를 사용하는 컨트롤의 클래스 이름이옵니다.
+지시문에는 동일한 규칙에 따라 컨트롤의 속성과 일치하는 특성이 있습니다.</p>
+<p>
+    일부 지시문은 중첩 된 하위 지시문을 지원합니다. 예를 들어, <b>wj-flex-grid</b> 지시어는 하나 이상의 <b>wj-flex-grid-column</b> 
+    지시문을 포함 할 수 있으며 <b>wj-flex-chart</b> 지시문은 하나 이상의 <b>wj-flex-chart-series</b> 지시문을 포함 할 수 있습니다. 
+    이로 인해 XAML과 매우 유사한 풍부하고 표현적인 마크 업 구문이 만들어집니다. MVVM의 진정한 이점을 얻으려면 이러한 유연성이 필수적입니다. 
+    컨트롤의 모양과 레이아웃은 뷰에 의해 정의됩니다. 컨트롤러는 데이터 만 제공합니다.
+</p>
+<p>
+    아래의 fiddle은 어떻게 작동하는지 보여줍니다 :
+</p>
+<p>
+  </p><div>
+    <br/>
+    <h3>
+      Example: Angular 지시문
+    </h3>
+    <div class="fiddle">
+      <script async="" src="http://jsfiddle.net/Wijmo5/QNb9X/embed/result,html,js,css"></script>
+      <iframe src="http://jsfiddle.net/Wijmo5/QNb9X/embedded/result,html,js,css" id="JSFEMB_17210" height="100%" width="100%" frameborder="0" sandbox="allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+    </div>
+  </div>
+  <br/>

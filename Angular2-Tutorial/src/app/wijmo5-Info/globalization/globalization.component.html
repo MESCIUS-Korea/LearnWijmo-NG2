@@ -1,0 +1,89 @@
+<h1 class="page-header">
+    세계화 Wijmo 5 응용 프로그램</h1>
+<p>
+   기본적으로 Wijmo는 미국식 영어 문화를 사용하여 데이터 형식을 지정하고 파싱합니다. 
+   소수점 기호는 마침표이며 천 단위 구분 기호는 쉼표이며 요일은 "일요일"에서 "토요일"입니다.</p>
+<p>
+응용 프로그램이 다른 문화권을 대상으로하는 경우 HTML 페이지에 적절한 Wijmo 문화 파일에 대한 참조를 포함시킵니다. 
+Wijmo는 40 개가 넘는 culture 파일 (아래 전체 목록 참조)을 포함하며 새로운 파일 생성 도구가 있습니다. 
+현재 지원되지 않는 문화권을 타겟팅하려면 Google에 문의하십시오. 필요한 파일을 만듭니다.   
+</p>
+<p>
+    예를 들어 독일 문화권의 애플리케이션을 현지화하려면 다음 행을 페이지의 head 섹션에 추가하십시오.:</p>
+
+<pre class="hljs xml"><span class="hljs-comment">&lt;!-- set German culture --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://cdn.wijmo.com/5.latest/controls/cultures/wijmo.culture.de.min.js"</span>&gt;</span><span class="undefined">
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></pre>
+
+<p>
+    이 fiddle은 결과를 보여줍니다. 그리드 값과 달력 날짜 형식을 확인하십시오.
+</p>
+<p>
+  </p><div class="member-panel example ng-scope">
+    <h3 class="node collapsed">
+      Example: 세계화
+    </h3>
+    <div class="fiddle">
+      <script async="" src="http://jsfiddle.net/Wijmo5/wK97R/embed/result,html,js,css"></script><iframe src="http://jsfiddle.net/Wijmo5/wK97R/embedded/result,html,js,css" id="JSFEMB_17211" height="100%" width="100%" frameborder="0" sandbox="allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+    </div>
+  </div>
+<p></p>
+<p>
+    그리드의 값을 편집하여 세계화가 데이터 구문 분석에도 적용되는지 확인할 수 있습니다. 
+    Wijmo의 <a href="http://wijmo.com/5/docs/topic/wijmo.Globalize.Class.html">Globalize</a>
+    클래스를 사용하면 Wijmo 컨트롤 외부에서도 응용 프로그램의 값을 형식화하고 파싱 할 수 있습니다.
+</p>
+
+<h3>
+    지원하는 문화권</h3>
+<p>
+    기본적으로 Wijmo는 미국 영어 문화를 사용하지만 귀하의 편의를 위해 몇 가지 다른 문화를 포함 시켰습니다. 
+    CDN에 위치하지만 <code>\Dist\controls\cultures</code>에서 설치 폴더의 파일을 찾을 수도 있습니다. 다음과 같은 문화가 현재 포함되어 있습니다.
+</p>
+
+<ul style="columns: 2">
+    <li><strong>ar-AE</strong> 아라비아어 (아랍 에미리트)</li>
+    <li><strong>eu</strong> 바스크어</li>
+    <li><strong>bg</strong> 불가리아어</li>
+    <li><strong>ca</strong> 카탈로니아어</li>
+    <li><strong>zh</strong> 중국어</li>
+    <li><strong>zh-HK</strong> 중국어 (국제, 홍콩 SAR)</li>
+    <li><strong>zh-TW</strong> 중국어 (국제, 대만)</li>
+    <li><strong>hr</strong> 크로아티아어</li>
+    <li><strong>cs</strong> 체코어</li>
+    <li><strong>da</strong> 덴마크어</li>
+    <li><strong>nl</strong> 네덜란드어</li>
+    <li><strong>en</strong> 영어</li>
+    <li><strong>en-CA</strong> 영어 (캐나다)</li>
+    <li><strong>en-GB</strong> 영어 (영국)</li>
+    <li><strong>et</strong> 에스토니아어</li>
+    <li><strong>fi</strong> 핀란드어</li>
+    <li><strong>fr</strong> 프랑스어</li>
+    <li><strong>fr-CA</strong> 프랑스어 (캐나다)</li>
+    <li><strong>gl</strong> 갈아시아어</li>
+    <li><strong>de</strong> 독일어</li>
+    <li><strong>el</strong> 그리스어</li>
+    <li><strong>he</strong> 히브리어</li>
+    <li><strong>hi</strong> 힌디어</li>
+    <li><strong>hu</strong> 헝가리어</li>
+    <li><strong>id</strong> 인도네시아어</li>
+    <li><strong>it</strong> 이탈리아어</li>
+    <li><strong>ja</strong> 일본어</li>
+    <li><strong>kk</strong> 카자흐어</li>
+    <li><strong>ko</strong> 한국어</li>
+    <li><strong>lv</strong> 라트비아어</li>
+    <li><strong>lt</strong> 리투아니아어</li>
+    <li><strong>no</strong> 노르웨이어</li>
+    <li><strong>pl</strong> 폴란드어</li>
+    <li><strong>pt</strong> 포루투갈어</li>
+    <li><strong>ro</strong> 루마니아어</li>
+    <li><strong>ru</strong> 러시아어</li>
+    <li><strong>sr</strong> 세르비아어</li>
+    <li><strong>sk</strong> 슬로바키아어</li>
+    <li><strong>sl</strong> 슬로베니아어</li>
+    <li><strong>es</strong> 스페인어</li>
+    <li><strong>sv</strong> 스웨덴어</li>
+    <li><strong>th</strong> 타이어</li>
+    <li><strong>tr</strong> 터키어</li>
+    <li><strong>uk</strong> 우크라이나어</li>
+</ul>
